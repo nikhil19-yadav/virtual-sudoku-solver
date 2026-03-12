@@ -1,0 +1,223 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+/* Basic Page Setup */
+:root {
+    --primary-color: #f7a300; /* Sudoku-themed orange */
+    --text-color: #e0e0e0;
+    --bg-overlay: rgba(0, 0, 0, 0.7);
+    --login-bg: rgba(255, 255, 255, 0.1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: var(--text-color);
+    overflow: hidden;
+}
+
+/* Background Image & Overlay */
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, var(--bg-overlay) 0%, transparent 100%),
+                url('https://i.ytimg.com/vi/8OPTOuD62Gw/maxresdefault.jpg') no-repeat center center/cover;
+    z-index: -1;
+    filter: brightness(0.7); /* Slightly darken the image */
+    animation: zoom-in 20s infinite alternate; /* Subtle zoom effect */
+}
+
+@keyframes zoom-in {
+    from { transform: scale(1); }
+    to { transform: scale(1.1); }
+}
+
+/* Login Box Styling (Glassmorphism) */
+.login-container {
+    padding: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.login-box {
+    background: var(--login-bg);
+    border-radius: 20px;
+    padding: 3rem 2.5rem;
+    backdrop-filter: blur(10px) saturate(150%);
+    -webkit-backdrop-filter: blur(10px) saturate(150%);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    text-align: center;
+    max-width: 450px;
+    width: 100%;
+    animation: fade-in 1s ease-in-out;
+}
+
+@keyframes fade-in {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+h1 {
+    font-weight: 700;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+p {
+    font-weight: 300;
+    margin-bottom: 2rem;
+    font-size: 1rem;
+    color: var(--text-color);
+}
+
+/* Form Elements */
+.input-group {
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--text-color);
+}
+
+input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    color: #fff;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+input[type="text"]:focus, input[type="password"]:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 10px var(--primary-color);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Buttons */
+.login-btn {
+    width: 100%;
+    padding: 1.2rem;
+    background: linear-gradient(45deg, #ff8c00, var(--primary-color));
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.login-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(255, 140, 0, 0.5);
+}
+
+.divider {
+    margin: 2rem 0;
+    position: relative;
+}
+
+.divider::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.3);
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+}
+
+.divider span {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 0 1rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    position: relative;
+    z-index: 1;
+}
+
+/* Social Login Buttons */
+.social-btn {
+    width: 100%;
+    padding: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin-bottom: 1rem;
+}
+
+.google-btn {
+    background-color: rgba(66, 133, 244, 0.1);
+    color: #4285f4;
+}
+
+.google-btn:hover {
+    background-color: rgba(66, 133, 244, 0.2);
+}
+
+.github-btn {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+.github-btn:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.social-btn img {
+    width: 24px;
+    height: 24px;
+}
+
+/* Links */
+.links {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-around;
+    font-size: 0.9rem;
+}
+
+.links a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 400;
+    transition: color 0.3s ease;
+}
+
+.links a:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
